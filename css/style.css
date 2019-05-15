@@ -84,10 +84,24 @@ header{
   height: 96%;
   color: #ffffff;
 }
+.msg-headline{
+  margin: 10% auto;
+  width: 96%;
+}
+.message{
+  margin: 5% auto;
+  width: 96%;
+}
+.msg-title{
+font-size: 1.5em;
+}
+.msg-content{
+  font-size: 0.5em;
+}
 #close{
   position: absolute;
   top: 2%;
-  right: 2%;
+  right: 4%;
   color: #ffffff;
   background: none;
 }
