@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <!--<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+  <script>
+    var OneSignal = window.OneSignal || [];
+    OneSignal.push(function() {
+      OneSignal.init({
+        appId: "7000831d-fc96-4139-874f-51aab0bc33c0",
+        notifyButton: {
+          enable: true,
+        },
+      });
+    });
+  </script>-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <header>
+    <picture class="logo"><img src="images\logo.svg" alt="images\logo"></picture><picture id="mobile-nav"><img src="images\burger-menu.svg" alt="images\burger-menu">
+</picture>
+  </header>
+  <section class="msg-modal"><button id="close">X</button></section>
+  <hr class="top-ruler">
+  <article>
+    <section class="full-width-btn" id="latest-msg">
+      <button class="large-btn" id="latest-btn">Seneste beskeder</button>
+    </section>
+
+    <section class="half-width-btn" id="teams-p1">
+      <button class="small-btn" id="hold-a"><span id="black">Hold </span>A</button>
+      <button class="small-btn" id="hold-b"><span id="black">Hold </span>B</button>
+      <button class="small-btn" id="hold-c"><span id="black">Hold </span>C</button>
+      <button class="small-btn" id="hold-d"><span id="black">Hold </span>D</button>
+      <button class="small-btn" id="hold-e"><span id="black">Hold </span>E</button>
+      <button class="small-btn" id="hold-f"><span id="black">Hold </span>F</button>
+      <button class="small-btn" id="hold-g"><span id="black">Hold </span>G</button>
+      <button class="small-btn" id="hold-h"><span id="black">Hold </span>H</button>
+    </section>
+    <section class="half-width-btn" id="teams-p2">
+      <button class="small-btn" id="hold-a"><span id="black">Hold </span>A</button>
+      <button class="small-btn" id="hold-b"><span id="black">Hold </span>B</button>
+      <button class="small-btn" id="hold-c"><span id="black">Hold </span>C</button>
+      <button class="small-btn" id="hold-d"><span id="black">Hold </span>D</button>
+      <button class="small-btn" id="hold-e"><span id="black">Hold </span>E</button>
+      <button class="small-btn" id="hold-f"><span id="black">Hold </span>F</button>
+      <button class="small-btn" id="hold-g"><span id="black">Hold </span>G</button>
+      <button class="small-btn" id="hold-h"><span id="black">Hold </span>H</button>
+    </section>
+    <section class="buttons" id="arrows"></section>
+
+  </article>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
