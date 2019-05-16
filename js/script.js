@@ -66,7 +66,7 @@ function showCategory(id){
 };
 
   function appendMessages(messages) {
-    let messageTemplate = "headline";
+    let messageTemplate = "";
     for (let message of messages) {
       messageTemplate += `
         <section class="messages">
