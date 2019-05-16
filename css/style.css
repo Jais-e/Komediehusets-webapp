@@ -81,8 +81,9 @@ header{
   left: 2%;
   background: rgba(0, 0, 0, 0.78);
   width: 96%;
-  height: 96%;
+  height: 96vh;
   color: #ffffff;
+  overflow-y: auto;
 }
 .msg-headline{
   margin: 10% auto;
@@ -97,6 +98,33 @@ font-size: 1.5em;
 }
 .msg-content{
   font-size: 0.5em;
+}
+.arrow-nav{
+  display: block;
+  margin: 2% auto;
+  width:  96%;
+}
+.arrow-btn{
+  color: #000000;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid #000000;
+  padding:0 2% 1% 2%;
+}
+.arrow-btn:hover{
+  cursor: pointer;
+}
+#next-btn{
+  position: absolute;
+  bottom: -10%;
+  right: 4%;
+}
+#back-btn{
+  position: absolute;
+  bottom: -10%;
+  left: 4%;
 }
 #close{
   position: absolute;
