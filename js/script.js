@@ -32,24 +32,24 @@ function appendCategories(categories) {
           document.querySelector(".arrow-nav").innerHTML = '<button class="arrow-btn" id="next-btn" onclick="nextPage()">></button>';
 
         }
-        else{
-        if (i >= 8 && i < 16){
+        else if (i >= 8 && i < 16){
           pageId = 2;
             document.querySelector("#teams-p2").innerHTML += `
                 <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
                 `;
             document.querySelector(".arrow-nav").innerHTML = '<button class="arrow-btn" id="back-btn"><</button><button class="arrow-btn" id="next-btn" onclick="nextPage()">></button>'
           }
-        else{
+        else if (i >= 16 && i < 24) {
           pageId = 3;
             document.querySelector("#teams-p3").innerHTML += `
                 <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
                 `;
             document.querySelector(".arrow-nav").innerHTML = '<button class="arrow-btn" id="back-btn"><</button><button class="arrow-btn" id="next-btn" onclick="nextPage()">></button>'
         }
+
       };
-        i ++;
-  };
+i ++;
+
 };
 
 function showCategory(id){
