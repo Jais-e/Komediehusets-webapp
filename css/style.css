@@ -136,6 +136,11 @@ font-size: 1.5em;
 #close:hover{
   cursor: pointer;
 }
+
+#onesignal-bell-container.onesignal-reset .onesignal-bell-launcher.onesignal-bell-launcher-bottom-right{
+  right: calc(50vw - 16px) !important;
+  bottom: 20px !important;
+}
 @media only screen and (min-width:360px){
 
 
