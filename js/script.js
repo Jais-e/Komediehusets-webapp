@@ -9,7 +9,7 @@ let pageId;
 
 // Categories
 function getCategories() {
-  fetch('http://komediehuset.com/wp-json/wp/v2/categories?parent=46&per_page=100')
+  fetch('https://komediehuset.com/wp-json/wp/v2/categories?parent=46&per_page=100')
     .then(function(response) {
       return response.json();
     })
@@ -53,7 +53,7 @@ i ++;
 };
 
 function showCategory(id){
-  let url = 'http://komediehuset.com/wp-json/wp/v2/posts?_embed&categories=' + id;
+  let url = 'https://komediehuset.com/wp-json/wp/v2/posts?_embed&categories=' + id;
   console.log(url);
   fetch(url)
     .then(function(response) {

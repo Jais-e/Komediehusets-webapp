@@ -15,6 +15,12 @@
       notifyButton: {
         enable: true,
       },
+      webhooks: {
+    cors: false, // Defaults to false if omitted
+
+    'notification.clicked': 'https://komediehuset.com/webapp/',
+    // ... follow the same format for any event in the list above
+  }
     });
   });
 </script>
