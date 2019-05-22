@@ -1,7 +1,6 @@
 
 @import url('https://fonts.googleapis.com/css?family=Kodchasan:300,300i,400,400i,700,700i');
 
-
 *{
   margin: 0;
   border:0;
@@ -32,7 +31,10 @@ header{
   height: auto;
   padding: 2%;
 }
-
+.sub-header{
+  text-align: center;
+  margin-bottom: 1%;
+}
 #mobile-nav img{
   width: 12%;
   height: auto;
@@ -43,6 +45,9 @@ header{
   border: 1px solid #000000;
   width: 96%;
   margin: 0 auto 2%;
+}
+#teams-p1 button:first-child{
+  display: none;
 }
 #teams-p2{
   display: none;
@@ -57,6 +62,14 @@ header{
 }
 .large-btn:hover{
   cursor: pointer;
+}
+.bulletin-board{
+  width: 90%;
+  min-height: 100px;
+  margin: 0 auto 2%;
+  background: url('../images/wg_stained_canvas_backgrounds_6-2-1024x640.jpg') no-repeat;
+  background-size: cover;
+  border: 3px solid rgb(125, 64, 0);
 }
 .half-width-btn{
   display: flex;
@@ -74,9 +87,10 @@ header{
 .small-btn:hover{
   cursor: pointer;
 }
-.msg-modal{
+
+.msg-modal, .menu-modal{
   display: none;
-  position: absolute;
+  position: fixed;
   top: 2%;
   left: 2%;
   background: rgba(0, 0, 0, 0.78);
@@ -127,9 +141,9 @@ font-size: 1.5em;
   left: 4%;
 }
 #close{
-  position: absolute;
-  top: 2%;
-  right: 4%;
+  position: fixed;
+  top: 4%;
+  right: 6%;
   color: #ffffff;
   background: none;
 }
