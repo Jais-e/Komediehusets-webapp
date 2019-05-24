@@ -6,11 +6,25 @@ let clickedBtn;
 let categoryId;
 let headline;
 let pageId;
-let loadedSettings = localStorage.getItem('displaySettings');
-
-
-
-// Show spcific message when redirected from notification click
+let loadedSettings = [localStorage.getItem('displaySettings')];
+/*
+loadSettings();
+function loadSettings(){
+  for (let load of loadedSettings){
+    let btn = document.querySelectorAll('.small-btn');
+    for (let each of btn){
+      if (each == load){
+        each.style.display = "block";
+      }else{
+        each.style.display = "none";
+      }
+      console.log(each);
+    }
+    console.log(load);
+  }
+};
+*/
+// Show specific message when redirected from notification click
 function getUrlParameter(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
   let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
