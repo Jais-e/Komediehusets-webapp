@@ -7,6 +7,7 @@ let categoryId;
 let headline;
 let pageId;
 
+
 // Show spcific message when redirected from notification click
 function getUrlParameter(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -100,8 +101,6 @@ function appendMessages(messages) {
   document.querySelector("#msg-modal").innerHTML = messageTemplate;
 };
 
-console.log("chosen");
-};
 // Display menu
 function openMenu() {
   document.querySelector('#menu-modal').style.display = "block";
