@@ -19,7 +19,8 @@ let postSlug = getUrlParameter('postSlug');
 console.log(postSlug);
 if (postSlug != "") {
   showPost(postSlug);
-}
+};
+
 function showPost(postSlug) {
   let url = 'https://komediehuset.com/wp-json/wp/v2/posts?_embed&slug=' + postSlug;
   console.log(url);
@@ -52,18 +53,21 @@ getCategories();
 function appendCategories(categories) {
   let i = 0;
   for (let category of categories) {
-if (category.slug != "faelles-beskeder"){
-    document.querySelector("#teams-p1").innerHTML += `
+    if (category.slug != "faelles-beskeder") {
+      // Buttons
+      document.querySelector("#teams-p1").innerHTML += `
               <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
               `;
-    document.querySelector("#settings-modal").innerHTML += `
+
+      // Checkboxes
+      document.querySelector("#settings-modal").innerHTML += `
           <li class="checklist"> <label class="set-label" for="${category.id}">${category.name}</label>
           <input type="checkbox" class="set-checkbox" id="${category.id}" name="${category.name}"></li>
                   `;
+    };
   };
-};
-
-document.querySelector("#settings-modal").innerHTML += `
+  // Save settings button
+  document.querySelector("#settings-modal").innerHTML += `
 <section class="confirm-buttons"><button class="ok-btn" id="save-settings">GEM</button></section>
 `;
   i++;
@@ -79,11 +83,10 @@ function showCategory(id) {
     })
     .then(function(messages) {
       appendMessages(messages);
-
       document.querySelector('#msg-modal').style.display = "block";
-
     });
 };
+
 function appendMessages(messages) {
   let messageTemplate = "";
   for (let message of messages) {
@@ -107,7 +110,7 @@ function openMenu() {
 };
 
 //display settings
-function openSettings(){
+function openSettings() {
   document.querySelector('#settings-modal').style.display = "flex";
 };
 
