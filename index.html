@@ -3,26 +3,28 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Komediehusets webapp</title>
+  <title>Komediehuset | Backstage</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="mobile-web-app-capable" content="yes">
+  <meta http-equiv="Cache-Control" content="no-cache" />
+  <meta http-equiv="Pragma" content="no-cache" />
   <link rel="manifest" href="/manifest.json" />
-
+  <link rel="manifest" href="/manifest.json">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
+
   <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
-  <script>
-    var OneSignal = window.OneSignal || [];
-    OneSignal.push(function() {
-      OneSignal.init({
-        appId: "e7508a62-6b4e-4ecb-8b94-3cc0f0451b7a",
-        notifyButton: {
-          enable: true,
-        },
-      });
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "85b47d1b-f55f-4ea5-99e0-d9a802985c58",
+      safari_web_id: 'web.onesignal.auto.5f257b48-e003-493b-a584-79b35812c24b',
     });
-  </script>
+
+  });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.3/fetch.min.js"></script>
   <link rel="stylesheet" href="css/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -32,13 +34,17 @@
 <body>
   <header>
     <picture class="logo"><img src="images\logo.png" alt="images\logo"></picture>
-    <picture id="mobile-nav"><img src="images\burger-menu.svg" alt="images\burger-menu">
+    <picture id="mobile-nav" onclick="openMenu()"><img src="images\burger-menu.svg" alt="images\burger-menu">
     </picture>
   </header>
   <hr class="top-ruler">
-  <section class="menu-modal"></section>
-  <section class="msg-modal"></section>
+  <section class="modal" id="menu-modal"><button id="close" onclick="closeModal()">X</button>
+    <button class="menu-btn" id="settings" onclick="openSettings()">Indstillinger</button>
 
+  </section>
+  <section class="modal" id="msg-modal"></section>
+  <ul class="modal" id="settings-modal"><button id="close" onclick="closeModal()">X</button><h2>Vis mig indhold fra:</h2>
+  </ul>
   <article>
     <section class="full-width-btn" id="latest-msg">
       <button class="large-btn" id="latest-btn" onclick="showCategory(76)">Fælles beskeder</button>
@@ -50,8 +56,7 @@
     <section class="bulletin-board" id="events"></section>
     <h2 class="sub-header">Hold beskeder</h2>
     <section class="half-width-btn" id="teams-p1"></section>
-    <section class="half-width-btn" id="teams-p2"></section>
-    <section class="half-width-btn" id="teams-p3"></section>
+
     <nav class="arrow-nav" id="arrows"></nav>
   </article>
 
