@@ -6,7 +6,6 @@ let clickedBtn;
 let categoryId;
 let headline;
 let pageId;
-
 let loadedSettings = localStorage.getItem('displaySettings');
 
 
@@ -50,26 +49,22 @@ function getCategories() {
 };
 getCategories();
 
-
-
 // Make buttons and checkboxes
 function appendCategories(categories) {
   for (let category of categories) {
     if (category.slug != "faelles-beskeder") {
-
-      if (category.id == loadedSettings.includes(category.id)){
-      // Buttons
-      document.querySelector("#teams-p1").innerHTML += `
-              <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
-              `;
-              console.log(category.id);
-}
-
       // Checkboxes
+
       document.querySelector("#settings-modal").innerHTML += `
           <li class="checklist"> <label class="set-label" for="${category.id}">${category.name}</label>
           <input type="checkbox" class="set-checkbox" id="${category.id}" name="${category.name}"></li>
                   `;
+
+      // Buttons
+      document.querySelector("#teams-p1").innerHTML += `
+              <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
+              `;
+
     };
   };
   // Save settings button
@@ -77,9 +72,6 @@ function appendCategories(categories) {
 <section class="confirm-buttons"><button class="ok-btn" id="save-settings" onclick="saveSettings()">GEM</button></section>
 `;
 };
-
-
-
 
 // Display message
 function showCategory(id) {
@@ -139,4 +131,5 @@ function saveSettings(){
   };
   console.log(displaySettings);
   localStorage.setItem("displaySettings", displaySettings);
+  closeModal();
 };
