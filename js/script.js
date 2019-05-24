@@ -7,6 +7,9 @@ let categoryId;
 let headline;
 let pageId;
 
+let loadedSettings = localStorage.getItem('displaySettings');
+
+
 
 // Show spcific message when redirected from notification click
 function getUrlParameter(name) {
@@ -34,7 +37,6 @@ function showPost(postSlug) {
     });
 };
 
-
 // Categories
 function getCategories() {
   fetch('https://komediehuset.com/wp-json/wp/v2/categories?parent=46&per_page=100')
@@ -49,15 +51,19 @@ function getCategories() {
 getCategories();
 
 
+
 // Make buttons and checkboxes
 function appendCategories(categories) {
-  let i = 0;
   for (let category of categories) {
     if (category.slug != "faelles-beskeder") {
+
+      if (category.id == loadedSettings.includes(category.id)){
       // Buttons
       document.querySelector("#teams-p1").innerHTML += `
               <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
               `;
+              console.log(category.id);
+}
 
       // Checkboxes
       document.querySelector("#settings-modal").innerHTML += `
@@ -68,10 +74,12 @@ function appendCategories(categories) {
   };
   // Save settings button
   document.querySelector("#settings-modal").innerHTML += `
-<section class="confirm-buttons"><button class="ok-btn" id="save-settings">GEM</button></section>
+<section class="confirm-buttons"><button class="ok-btn" id="save-settings" onclick="saveSettings()">GEM</button></section>
 `;
-  i++;
 };
+
+
+
 
 // Display message
 function showCategory(id) {
@@ -100,7 +108,6 @@ function appendMessages(messages) {
           </section>
         `;
   };
-
   document.querySelector("#msg-modal").innerHTML = messageTemplate;
 };
 
@@ -121,4 +128,15 @@ function closeModal() {
   document.querySelector('#msg-modal').style.display = 'none';
   document.querySelector('#menu-modal').style.display = 'none';
   document.querySelector('#settings-modal').style.display = 'none';
+};
+function saveSettings(){
+  let displaySettings = [];
+  let settings = document.querySelectorAll('.checklist input');
+    for (let setting of settings){
+      if (setting.checked == true){
+      displaySettings.push(setting.id);
+    }
+  };
+  console.log(displaySettings);
+  localStorage.setItem("displaySettings", displaySettings);
 };
