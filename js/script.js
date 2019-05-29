@@ -6,10 +6,10 @@ let clickedBtn;
 let categoryId;
 let headline;
 let pageId;
-let loadedSettings = localStorage.getItem('displaySettings');
 
 
 function loadSettings() {
+  let loadedSettings = localStorage.getItem('displaySettings');
   let buttons = document.querySelectorAll('.small-btn');
   console.log(buttons);
 
@@ -70,7 +70,6 @@ function appendCategories(categories) {
   for (let category of categories) {
     if (category.slug != "faelles-beskeder") {
       // Checkboxes
-
       document.querySelector("#settings-modal").innerHTML += `
           <li class="checklist"> <label class="set-label" for="${category.id}">${category.name}</label>
           <input type="checkbox" class="set-checkbox" id="${category.id}" name="${category.name}"></li>
@@ -80,9 +79,7 @@ function appendCategories(categories) {
       document.querySelector("#teams-p1").innerHTML += `
               <button class="small-btn" id="${category.id}" onclick="showCategory(${category.id})">${category.name}</button>
               `;
-
     };
-
   };
   // Save settings button
   document.querySelector("#settings-modal").innerHTML += `
@@ -106,11 +103,11 @@ function showCategory(id) {
 };
 
 function appendMessages(messages) {
-  let messageTemplate = "";
+  let messageTemplate = `<button id="close" onclick="closeModal()">X</button>`;
   for (let message of messages) {
     messageTemplate += `
         <section class="messages">
-        <button id="close" onclick="closeModal()">X</button>
+
           <div class="message">
             <h4 class="msg-title">${message.title.rendered}</h4>
             <p class="msg-content">${message.content.rendered}</p>
@@ -148,10 +145,8 @@ function saveSettings() {
       displaySettings.push(setting.id);
     }
   };
-
   console.log(displaySettings);
   localStorage.setItem("displaySettings", displaySettings);
-
   closeModal();
-  location.reload();
+  loadSettings();
 };
