@@ -6,24 +6,26 @@ let clickedBtn;
 let categoryId;
 let headline;
 let pageId;
-let loadedSettings = [localStorage.getItem('displaySettings')];
-/*
-loadSettings();
-function loadSettings(){
-  for (let load of loadedSettings){
-    let btn = document.querySelectorAll('.small-btn');
-    for (let each of btn){
-      if (each == load){
-        each.style.display = "block";
-      }else{
-        each.style.display = "none";
-      }
-      console.log(each);
+let loadedSettings = localStorage.getItem('displaySettings');
+
+
+function loadSettings() {
+  let buttons = document.querySelectorAll('.small-btn');
+  console.log(buttons);
+
+  for (let btn of buttons) {
+    console.log(loadedSettings);
+    console.log(btn);
+    console.log(btn.id);
+    if (loadedSettings.includes(btn.id)) {
+      btn.style.display = "block";
+    } else {
+      btn.style.display = "none";
     }
-    console.log(load);
+    console.log(btn);
   }
 };
-*/
+
 // Show specific message when redirected from notification click
 function getUrlParameter(name) {
   name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
@@ -80,11 +82,13 @@ function appendCategories(categories) {
               `;
 
     };
+
   };
   // Save settings button
   document.querySelector("#settings-modal").innerHTML += `
 <section class="confirm-buttons"><button class="ok-btn" id="save-settings" onclick="saveSettings()">GEM</button></section>
 `;
+  loadSettings();
 };
 
 // Display message
@@ -135,15 +139,19 @@ function closeModal() {
   document.querySelector('#menu-modal').style.display = 'none';
   document.querySelector('#settings-modal').style.display = 'none';
 };
-function saveSettings(){
+
+function saveSettings() {
   let displaySettings = [];
   let settings = document.querySelectorAll('.checklist input');
-    for (let setting of settings){
-      if (setting.checked == true){
+  for (let setting of settings) {
+    if (setting.checked == true) {
       displaySettings.push(setting.id);
     }
   };
+
   console.log(displaySettings);
   localStorage.setItem("displaySettings", displaySettings);
+
   closeModal();
+  location.reload();
 };
